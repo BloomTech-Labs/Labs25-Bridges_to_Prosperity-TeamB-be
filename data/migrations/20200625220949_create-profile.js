@@ -16,7 +16,7 @@ exports.up = (knex) => {
       bridges.string('district');
       bridges.string('sector');
       bridges.string('cell');
-      bridges.int('project_code');
+      bridges.integer('project_code');
       bridges.string('project_stage');
       bridges.string('bridge_type');
       bridges.string('span');
@@ -25,7 +25,7 @@ exports.up = (knex) => {
     });
 };
 
-exports.down = (knex) => {
-  return knex.schema.dropTableIfExists('profiles');
+exports.down = async (knex) => {
+  await knex.schema.dropTableIfExists('profiles');
   return knex.schema.dropTableIfExists('bridges');
 };
