@@ -7,9 +7,25 @@ exports.up = (knex) => {
       table.string('name');
       table.string('avatarUrl');
       table.timestamps(true, true);
+    })
+
+    .createTable('bridges', function (bridges) {
+      bridges.increments();
+      bridges.string('country');
+      bridges.string('province');
+      bridges.string('district');
+      bridges.string('sector');
+      bridges.string('cell');
+      bridges.integer('project_code');
+      bridges.string('project_stage');
+      bridges.string('bridge_type');
+      bridges.string('span');
+      bridges.float('lat');
+      bridges.float('long');
     });
 };
 
-exports.down = (knex) => {
-  return knex.schema.dropTableIfExists('profiles');
+exports.down = async (knex) => {
+  await knex.schema.dropTableIfExists('profiles');
+  return knex.schema.dropTableIfExists('bridges');
 };
