@@ -11,7 +11,7 @@ exports.up = (knex) => {
 
     .createTable('bridges', function (bridges) {
       bridges.increments();
-      communities.integer('b2p_bridge_id');
+      bridges.integer('b2p_bridge_id');
       bridges.string('country');
       bridges.string('province');
       bridges.string('district');
@@ -32,14 +32,14 @@ exports.up = (knex) => {
     })
     .createTable('communities_served', function (communities_served){
       communities_served.increments();
-      communities_served.integer('bridge_id');
-      communities_served.integer('community_id');
+      communities_served.integer('bridge_id').unsigned().notNullable().references("id").inTable("bridges").onUpdate("CASCADE")
+      communities_served.integer('community_id').unsigned().notNullable().references("id").inTable("communities").onUpdate("CASCADE")
     })
 };
 
 exports.down = async (knex) => {
   await knex.schema.dropTableIfExists('profiles');
-  await knex.schema.dropTableIfExists('bridges');
+  await knex.schema.dropTableIfExists('communities_served')
   await knex.schema.dropTableIfExists('communities');
-  return knex.schema.dropTableIfExists('communities_served');
+  return knex.schema.dropTableIfExists('bridges');
 };
