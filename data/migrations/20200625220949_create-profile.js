@@ -11,6 +11,7 @@ exports.up = (knex) => {
 
     .createTable('bridges', function (bridges) {
       bridges.increments();
+      communities.integer('b2p_bridge_id');
       bridges.string('country');
       bridges.string('province');
       bridges.string('district');
@@ -18,14 +19,27 @@ exports.up = (knex) => {
       bridges.string('cell');
       bridges.integer('project_code');
       bridges.string('project_stage');
+      bridges.string('sub_stage');
       bridges.string('bridge_type');
       bridges.string('span');
       bridges.float('lat');
       bridges.float('long');
-    });
+    })
+    .createTable('communities', function (communities){
+      communities.increments();
+      communities.integer('b2p_community_id');
+      communities.string('name');
+    })
+    .createTable('communities_served', function (communities_served){
+      communities_served.increments();
+      communities_served.integer('bridge_id');
+      communities_served.integer('community_id');
+    })
 };
 
 exports.down = async (knex) => {
   await knex.schema.dropTableIfExists('profiles');
-  return knex.schema.dropTableIfExists('bridges');
+  await knex.schema.dropTableIfExists('bridges');
+  await knex.schema.dropTableIfExists('communities');
+  return knex.schema.dropTableIfExists('communities_served');
 };
