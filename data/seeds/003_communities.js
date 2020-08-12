@@ -6,8 +6,12 @@ exports.seed = function(knex) {
       // Inserts seed entries
       return knex('communities').insert([
         {
-          b2p_community_id: 1241254,
-          name: 'gakori',
+          b2p_community_id: 2125751,
+          name: 'Buzi',
+        },
+        {
+          b2p_community_id: 1235672,
+          name: 'Buzi',
         },
       ]);
     });

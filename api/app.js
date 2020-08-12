@@ -23,7 +23,6 @@ const indexRouter = require('./index/indexRouter');
 const profileRouter = require('./profile/profileRouter');
 const dsRouter = require('./dsService/dsRouter');
 const bridgeRouter = require('./bridge/bridgeRouter');
-const communityRouter = require('./community/communityRouter');
 
 const app = express();
 
@@ -53,7 +52,6 @@ app.use(cookieParser());
 app.use('/', indexRouter);
 app.use(['/profile', '/profiles'], profileRouter);
 app.use('/bridges', bridgeRouter);
-app.use('/communities', communityRouter);
 app.use('/data', dsRouter);
 
 // catch 404 and forward to error handler
