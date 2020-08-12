@@ -3,33 +3,6 @@ const bridges = require('./bridgeModel');
 const router = express.Router();
 
 router.get('/', async (req, res) => {
-  //   bridges
-  //     .findAll()
-  //     .then(async (bridgestemp) => {
-  //       const finalreturn = bridgestemp.map((item) => {
-  //         return { ...item, communities_served: [] };
-  //       });
-
-  //       try {
-  //         finalreturn.forEach(
-  //           async (bridge) =>
-  //             await bridges
-  //               .findCommunitiesForBridge(bridge.id)
-  //               .then((communities) => {
-  //                 bridge.communities_served = communities.map((item) => {
-  //                   return item;
-  //                 });
-  //               })
-  //         );
-  //       } catch (error) {
-  //         console.log(error);
-  //       }
-  //       await res.status(200).json(finalreturn);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //       res.status(500).json({ message: err.message });
-  //     });
   try {
     const allBridges = await bridges.findAll();
     const final = await Promise.all(
