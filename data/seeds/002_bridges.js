@@ -1,12 +1,12 @@
-
-exports.seed = function(knex) {
+exports.seed = function (knex) {
   // Deletes ALL existing entries
-  return knex('bridges').del()
+  return knex('bridges')
+    .del()
     .then(function () {
       // Inserts seed entries
       return knex('bridges').insert([
         {
-          id: 1, 
+          id: 1,
           country: 'Rwanda',
           province: 'Western Province',
           district: 'Rusizi',
@@ -16,8 +16,8 @@ exports.seed = function(knex) {
           project_stage: 'Completed',
           bridge_type: 'Suspended',
           span: '8 Meters',
-          lat: -2.420560,
-          long: 28.966200
+          lat: -2.42056,
+          long: 28.9662,
         },
       ]);
     });
