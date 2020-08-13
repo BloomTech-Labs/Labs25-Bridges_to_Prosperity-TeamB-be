@@ -50,8 +50,8 @@ exports.up = (knex) => {
 };
 
 exports.down = async (knex) => {
+  await knex.schema.dropTableIfExists('bridges');
   await knex.schema.dropTableIfExists('profiles');
   await knex.schema.dropTableIfExists('communities_served');
-  await knex.schema.dropTableIfExists('communities');
-  return knex.schema.dropTableIfExists('bridges');
+  return knex.schema.dropTableIfExists('communities');
 };
