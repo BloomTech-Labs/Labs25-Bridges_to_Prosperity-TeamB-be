@@ -19,6 +19,25 @@ router.get('/', async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 });
+//bridges/status?project_stage='Completed'
+router.get('/status', async (req, res) => {
+  const query = req.query.project_stage;
+  try {
+    const queriedBridges = await bridges.findbyStage(query);
+    const final = await Promise.all(
+      queriedBridges.map(async (bridge) => {
+        const communities_served = await bridges.findCommunitiesForBridge(
+          bridge.id
+        );
+        return { ...bridge, communities_served };
+      })
+    );
+    res.status(200).json(final);
+  } catch (error) {
+    console.log('error');
+    res.status(500).json({ message: error.message });
+  }
+});
 
 router.get('/communities/:id', (req, res) => {
   const id = req.params.id;
