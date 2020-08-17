@@ -19,7 +19,7 @@ router.get('/', async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 });
-//bridges/status?project_stage='Completed'
+//url.com/bridges/status?project_stage='Completed'
 router.get('/status', async (req, res) => {
   const query = req.query.project_stage;
   try {
