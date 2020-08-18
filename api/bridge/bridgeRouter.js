@@ -22,6 +22,7 @@ router.get('/', async (req, res) => {
 //url.com/bridges/status?project_stage='Completed'
 router.get('/status', async (req, res) => {
   const query = req.query.project_stage;
+  console.log(query)
   try {
     const queriedBridges = await bridges.findbyStage(query);
     const final = await Promise.all(
