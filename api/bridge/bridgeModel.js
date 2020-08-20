@@ -4,9 +4,8 @@ const findAll = async () => {
   return await db('bridges');
 };
 const findbyStage = async (stage) => {
-  console.log(stage)
-  return await db('bridges')
-    .where({'bridges.project_stage': stage})
+  console.log(stage);
+  return await db('bridges').where({ 'bridges.project_stage': stage });
 };
 const findCommunitiesForBridge = async (id) => {
   return await db('bridges as b')
