@@ -1,4 +1,58 @@
-# Basic node API
+# Backend
+
+Base Url: https://bridges-b-api.herokuapp.com/
+
+Backend Endpoints:
+
+Expected:
+
+https://bridges-b-api.herokuapp.com/bridges
+
+Returns:
+
+{
+"id": 1,
+"b2p_bridge_id": null,
+"country": "Rwanda",
+"province": "Western Province",
+"district": "Rusizi",
+"sector": "Giheke",
+"cell": "Gakomeye",
+"project_code": 1014107,
+"project_stage": "Completed",
+"sub_stage": null,
+"bridge_type": "Suspended",
+"span": "8 Meters",
+"lat": -2.42056,
+"long": 28.9662,
+"communities_served": [
+{
+"id": 1,
+"name": "Buzi"
+}
+
+Expected:
+
+https://bridges-b-api.herokuapp.com/bridges/communities/:id
+
+Returns:
+
+{
+"id": 1,
+"name": "Buzi"
+}
+
+User Endpoints:
+
+Expected:
+
+https://bridges-b-api.herokuapp.com/bridges/status?project_stage=what you're filtering by
+
+Returns:
+
+the project stage of which you set is the bridge is completed then it will return as such etc.
+
+## Basic node API
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/65e3a684cd28554d0383/maintainability)](https://codeclimate.com/github/Lambda-School-Labs/labs-api-starter/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/65e3a684cd28554d0383/test_coverage)](https://codeclimate.com/github/Lambda-School-Labs/labs-api-starter/test_coverage) test
