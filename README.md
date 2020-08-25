@@ -1,8 +1,53 @@
-# Backend
+# 1️⃣ Bridge of Prosperity Backend
 
-Base Url: https://bridges-b-api.herokuapp.com/
+1️⃣ You can find the deployed project at https://bridges-b-api.herokuapp.com/
 
-Backend Endpoints:
+## 4️⃣ Contributors
+
+|                                          [Cody Solomon](https://github.com/CodyFlys)                                          |                                                      [Robert Misch](https://github.com/RobertMisch)                                                       |                                                    [Xavier Hoskins](https://github.com/xavierhoskins)                                                     |
+| :---------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------: |
+|        [<img src="https://avatars0.githubusercontent.com/u/24370208?s=400&v=4" width = "200" />](https://github.com/)         | [<img src="https://avatars2.githubusercontent.com/u/60758834?s=460&u=e9fd1bd445778f124a4107689c839b624a4ad217&v=4" width = "200" />](https://github.com/) | [<img src="https://avatars1.githubusercontent.com/u/59076433?s=460&u=7d6b6c0d420aec9596603733d2760b4912015f9d&v=4" width = "200" />](https://github.com/) |
+|                   [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/RobertMisch)                    |                                   [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/CodyFlys)                                   |                                [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/xavierhoskins)                                 |
+| [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/robert-misch/) |               [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/cody-solomon/)               |              [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/xavier-hoskins/)              |
+
+<br>
+<br>
+
+![React](https://img.shields.io/badge/react-v16.7.0--alpha.2-blue.svg)
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+
+## Project Overview
+
+1️⃣ [Trello Board] https://trello.com/b/x1iIzJdj/labs25bridgesjessica
+
+#### [Back end] https://bridges-b-api.herokuapp.com/built using:
+
+# APIs
+
+# 3️⃣ Environment Variables
+
+In order for the app to function correctly, the user must set up their own environment variables. There should be a .env file containing the following:
+
+DS_API_URL=
+DS_API_TOKEN=
+DATABASE_URL=
+OKTA_URL_ISSUER=
+
+# 4️⃣ Installation Instructions
+
+- run: `npm install` to download all dependencies.
+- run: `cp .env.sample .env` and update the enviornment variables to match your local setup.
+- run: `npm run knex migrate:latest` to create the starting schema.
+- run: `npm run knex seed:run` to populate your db with some data.
+- run: `npm run tests` to confirm all is setup and tests pass.
+- run: `npm run watch:dev` to start nodemon in local dev enviornment.
+
+> Make sure to update the details of the app name, description and version in
+> the `package.json` and `config/jsdoc.js` files.
+
+## Documentation
+
+backend Endpoints:
 
 Expected:
 
@@ -51,111 +96,3 @@ https://bridges-b-api.herokuapp.com/bridges/status?project_stage=what you're fil
 Returns:
 
 the project stage of which you set is the bridge is completed then it will return as such etc.
-
-## Basic node API
-
-[![Maintainability](https://api.codeclimate.com/v1/badges/65e3a684cd28554d0383/maintainability)](https://codeclimate.com/github/Lambda-School-Labs/labs-api-starter/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/65e3a684cd28554d0383/test_coverage)](https://codeclimate.com/github/Lambda-School-Labs/labs-api-starter/test_coverage) test
-
-> **Disclaimer:** This application is currently in Beta mode and is not ready for
-> production. Please use at your own risk as things will change almost daily.
-
-The following examples can be found in this project template.
-
-- CRUD routes for a single resource
-- A Knex model providing CRUD methods for DB operations
-- Some route tests with mocks on the database calls
-- Okta authentication verification middleware
-- eslint setup and prettier formating.
-- Jest coverage setup
-- Inline Swagger docs with a live route at `/api-docs`
-- Github workflow config setup to run linting, tests and upload coverage to code climate
-- docker-compose file for spinning up postgresql db. (Win10 Home requires WSL)
-
-## Requirements
-
-All [Labs Engineering Standards](https://labs.lambdaschool.com/topics/node-js/) must be followed.
-
-## API doc
-
-All routes can be viewed in the [/api-docs route](https://labs-api-starter.herokuapp.com/api-docs/)
-of your deploy (or locally).
-
-- https://localhost:8005/api-docs
-
-Swagger docs are created using open api v3 notations. The docs are found inline
-on the router files in `api/**/*Router.js` and use the yaml notation format.
-The root of the docs is in `config/jsdoc.js` using the json format.
-
-The following libraries have been used to build and serve the swagger docs live.
-
-- [express-ui](https://github.com/scottie1984/swagger-ui-express)
-- [swagger-jsdoc](https://github.com/Surnet/swagger-jsdoc)
-
-## Getting Started
-
-### Enviornment Variables
-
-- `PORT` - API port (optional, but helpful with FE running as well)
-- `DS_API_URL` - URL to a data science api. (eg. https://ds-bw-test.herokuapp.com/)
-- `DS_API_TOKEN` - authorization header token for data science api (eg. SUPERSECRET)
-- `DATABASE_URL` - connection string for postgres database
-- `OKTA_URL_ISSUER` - The complete issuer URL for verifying okta access tokens. `https://example.okta.com/oauth2/default`
-- `OKTA_CLIENT_ID` - the okta client ID.
-
-See .env.sample for example values
-
-### Setup postgres
-
-There are 3 options to get postgresql installed locally [Choose one]:
-
-1. Use docker. [Install](https://docs.docker.com/get-docker/) for your platform
-   - run: `docker-compose up -d` to start up the postgresql database and pgadmin.
-   - Open a browser to [pgadmin](http://localhost:5050/) and you should see the Dev server already defined.
-   - If you need to start over you will need to delete the folder `$ rm -rf ./data/pg` as this is where all of the server data is stored.
-     - if the database `api-dev` was not created then start over.
-2. Download and install postgresql directly from the [main site](https://www.postgresql.org/download/)
-   - make note of the port, username and password you use to setup the database.
-   - Connect your client to the server manually using the values previously mentioned
-   - You will need to create a database manually using a client.
-   - Make sure to update the DATABASE_URL connection string with the values for username/password, databasename and server port (if not 5432).
-3. Setup a free account at [ElephantSQL](https://www.elephantsql.com/plans.html)
-   - Sign up for a free `Tiney Turtle` plan
-   - copy the URL to the DATABASE_URL .env variable
-   - make sure to add `?ssl=true` to the end of this url
-
-### Setup the application
-
-- For Labs projects, clone the repo. Otherwise you can create a new repo using this as a template.
-
-  - **note** please [be sure to set your remote](https://help.github.jp/enterprise/2.11/user/articles/changing-a-remote-s-url/) for this repo to point to your Labs Team Repository.
-  - Alternatively you can clone this repo then remove the git folder to initialize a new repo
-
-    ```bash
-    > git clone --depth=1 --branch=main git@github.com:Lambda-School-Labs/labs-api-starter.git NEW-REPO-NAME
-    > rm -rf ./NEW-REPO-NAME/.git
-    ```
-
-- run: `npm install` to download all dependencies.
-- run: `cp .env.sample .env` and update the enviornment variables to match your local setup.
-- run: `npm run knex migrate:latest` to create the starting schema.
-- run: `npm run knex seed:run` to populate your db with some data.
-- run: `npm run tests` to confirm all is setup and tests pass.
-- run: `npm run watch:dev` to start nodemon in local dev enviornment.
-
-> Make sure to update the details of the app name, description and version in
-> the `package.json` and `config/jsdoc.js` files.
-
-## Contributing
-
-### ESLint and prettier
-
-[ESLint](https://eslint.org/) and [prettier](https://prettier.io/) are already
-configured with Lambda Labs standards and ready to go. These must be ran from
-the CLI prior to commiting code in the following ways:
-
-- `npm run lint` to view all purposed fixes.
-- `npm run lint:fix` to apply fixes to eslint issues.
-- `npm run format` to apply the standards defined by eslint/prettier config.
-
-Alternatively you can install plugins for your editor of choice.
