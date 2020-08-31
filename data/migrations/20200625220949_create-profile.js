@@ -11,47 +11,37 @@ exports.up = (knex) => {
 
     .createTable('bridges', function (bridges) {
       bridges.increments();
-      bridges.integer('b2p_bridge_id');
-      bridges.string('country');
-      bridges.string('province');
-      bridges.string('district');
-      bridges.string('sector');
-      bridges.string('cell');
-      bridges.integer('project_code');
-      bridges.string('project_stage');
-      bridges.string('sub_stage');
-      bridges.string('bridge_type');
-      bridges.string('span');
-      bridges.float('lat');
-      bridges.float('long');
-    })
-    .createTable('communities', function (communities) {
-      communities.increments();
-      communities.integer('b2p_community_id');
-      communities.string('name');
-    })
-    .createTable('communities_served', function (communities_served) {
-      communities_served.increments();
-      communities_served
-        .integer('bridge_id')
-        .unsigned()
-        .notNullable()
-        .references('id')
-        .inTable('bridges')
-        .onUpdate('CASCADE');
-      communities_served
-        .integer('community_id')
-        .unsigned()
-        .notNullable()
-        .references('id')
-        .inTable('communities')
-        .onUpdate('CASCADE');
+      bridges.string('Country');
+      bridges.string('Province');
+      bridges.string('District');
+      bridges.string('Sector');
+      bridges.string('Cell');
+      bridges.string('Bridge Site Name');
+      bridges.string('Project Stage');
+      bridges.string('Project Sub-Stage');
+      bridges.integer('Project Code');
+      bridges.string('Bridge Type');
+      bridges.string('Span (m)');
+      bridges.float('GPS (Latitude)');
+      bridges.float('GPS (Longitude)');
+      bridges.string('Individuals Directly Served');
+      bridges.string('Form: Form Name');
+      bridges.string('Community Served 1');
+      bridges.string('Community Served 2');
+      bridges.string('Community Served 3');
+      bridges.string('Community Served 4');
+      bridges.string('Community Served 5');
+      bridges.string('Community Served 6');
+      bridges.string('Community Served 7');
+      bridges.string('Community Served 8');
+      bridges.string('Community Served 9');
+      bridges.string('Community Served 10');
+      bridges.string('CaseSafeID Form');
+      bridges.string('Bridge Opportunity: Opportunity ID');
     });
 };
 
 exports.down = async (knex) => {
   await knex.schema.dropTableIfExists('bridges');
-  await knex.schema.dropTableIfExists('profiles');
-  await knex.schema.dropTableIfExists('communities_served');
-  return knex.schema.dropTableIfExists('communities');
+  return knex.schema.dropTableIfExists('profiles');
 };
