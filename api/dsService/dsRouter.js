@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const dsModel = require('./dsModel');
 const authRequired = require('../middleware/authRequired');
+const db = require('../../data/db-config');
+const bridgeModel = require('../bridge/bridgeModel');
 
 /**
  * @swagger
@@ -116,5 +118,18 @@ router.get('/viz/:state', authRequired, function (req, res) {
       res.status(500).json(error);
     });
 });
+
+
+router.get('/bridges', (req, res) => {
+  dsModel
+    .bridgeData()
+    .then((response) => {
+      res.status(200).json(response.data);
+    })
+    .catch((error) => {
+      console.error(error);
+      res.status(500).json(error);
+    });
+})
 
 module.exports = router;

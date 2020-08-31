@@ -10,4 +10,8 @@ const getViz = (state) => {
   return dsClient.get(`/viz/${state}`);
 };
 
-module.exports = { getPrediction, getViz };
+const bridgeData = async () => {
+  return await dsClient.get(`/raw`)
+};
+
+module.exports = { getPrediction, getViz, bridgeData };
