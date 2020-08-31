@@ -5,7 +5,7 @@ const findAll = async () => {
 };
 
 const addBridge = async (newBridge) => {
-  return db('bridges').insert(newBridge)
+  return db('bridges').insert(newBridge);
 };
 
 const findbyStage = async (stage) => {

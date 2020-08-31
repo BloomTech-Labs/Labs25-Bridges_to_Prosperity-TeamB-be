@@ -2,8 +2,6 @@ const express = require('express');
 const router = express.Router();
 const dsModel = require('./dsModel');
 const authRequired = require('../middleware/authRequired');
-const db = require('../../data/db-config');
-const bridgeModel = require('../bridge/bridgeModel');
 
 /**
  * @swagger
