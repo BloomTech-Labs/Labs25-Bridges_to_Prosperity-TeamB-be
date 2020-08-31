@@ -38,7 +38,7 @@ exports.up = (knex) => {
       bridges.string('Community Served 10');
       bridges.string('CaseSafeID Form');
       bridges.string('Bridge Opportunity: Opportunity ID');
-    })
+    });
 };
 
 exports.down = async (knex) => {

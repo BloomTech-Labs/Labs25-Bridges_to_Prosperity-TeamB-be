@@ -119,7 +119,6 @@ router.get('/viz/:state', authRequired, function (req, res) {
     });
 });
 
-
 router.get('/bridges', (req, res) => {
   dsModel
     .bridgeData()
@@ -130,6 +129,6 @@ router.get('/bridges', (req, res) => {
       console.error(error);
       res.status(500).json(error);
     });
-})
+});
 
 module.exports = router;
