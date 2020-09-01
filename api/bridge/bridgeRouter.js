@@ -7,8 +7,8 @@ router.get('/', async (req, res) => {
   dsModel
     .bridgeData()
     .then((response) => {
-      for (let i = 0; i < response.length; i++) {
-        bridgeModel.addBridge(response[i]);
+      for (let i = 0; i < response.data.length; i++) {
+        bridgeModel.addBridge(response.data[i]);
       }
       bridgeModel.findAll().then((response) => {
         res.status(200).json(response);
