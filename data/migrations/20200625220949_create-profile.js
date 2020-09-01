@@ -21,8 +21,8 @@ exports.up = (knex) => {
       bridges.string('Project Sub-Stage');
       bridges.integer('Project Code');
       bridges.string('Bridge Type');
-      bridges.string('Span (m)');
-      bridges.float('GPS (Latitude)');
+      bridges.string(' Span (m)');
+      bridges.float(' GPS (Latitude)');
       bridges.float('GPS (Longitude)');
       bridges.string('Individuals Directly Served');
       bridges.string('Form: Form Name');
