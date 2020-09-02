@@ -19,10 +19,10 @@ exports.up = (knex) => {
       bridges.string('Bridge Site Name');
       bridges.string('Project Stage');
       bridges.string('Project Sub-Stage');
-      bridges.integer('Project Code');
+      bridges.string('Project Code');
       bridges.string('Bridge Type');
-      bridges.string(' Span (m)');
-      bridges.float(' GPS (Latitude)');
+      bridges.float(' Span (m)');
+      bridges.float('GPS (Latitude)');
       bridges.float('GPS (Longitude)');
       bridges.string('Individuals Directly Served');
       bridges.string('Form: Form Name');
