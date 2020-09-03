@@ -9,6 +9,8 @@ const swaggerJSDoc = require('swagger-jsdoc');
 const jsdocConfig = require('../config/jsdoc');
 const dotenv = require('dotenv');
 const config_result = dotenv.config();
+const dsModel = require('./dsService/dsModel');
+const bridgeModel = require('./bridge/bridgeModel');
 if (process.env.NODE_ENV != 'production' && config_result.error) {
   throw config_result.error;
 }
@@ -80,5 +82,20 @@ app.use(function (err, req, res, next) {
   }
   next(err);
 });
+
+// Set interval will run every 24 hours
+const updateBridgesFromDS = async () => {
+  const dsBridges = await dsModel.bridgeData();
+  const bridges = (await bridgeModel.getAllProjectCodes()).map((b) => {
+    return b['Project Code'];
+  });
+  const newBridges = dsBridges.data.filter((dsBridge) => {
+    return !bridges.includes(dsBridge['Project Code']);
+  });
+  console.log(`inserting ${newBridges.length} new bridges`);
+  await bridgeModel.addBridge(newBridges);
+};
+
+setInterval(updateBridgesFromDS, 1000 * 60 * 60 * 24);
 
 module.exports = app;
