@@ -1,12 +1,12 @@
 var dotenv = require('dotenv');
-dotenv.config({ path: '../.env' });
-
+dotenv.config({ path: './.env' });
+console.log(process.env.DATABASE_URL);
 module.exports = {
   development: {
     client: 'pg',
     connection: process.env.DATABASE_URL,
-    migrations: { directory: '../data/migrations' },
-    seeds: { directory: '../data/seeds' },
+    migrations: { directory: './data/migrations' },
+    seeds: { directory: './data/seeds' },
     pool: {
       min: 2,
       max: 10,
@@ -16,14 +16,14 @@ module.exports = {
   test: {
     client: 'pg',
     connection: process.env.DATABASE_URL,
-    migrations: { directory: '../data/migrations' },
-    seeds: { directory: '../data/seeds' },
+    migrations: { directory: './data/migrations' },
+    seeds: { directory: './data/seeds' },
   },
 
   production: {
     client: 'pg',
     connection: process.env.DATABASE_URL,
-    migrations: { directory: '../data/migrations' },
-    seeds: { directory: '../data/seeds' },
+    migrations: { directory: './data/migrations' },
+    seeds: { directory: './data/seeds' },
   },
 };
