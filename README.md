@@ -28,10 +28,12 @@
 
 In order for the app to function correctly, the user must set up their own environment variables. There should be a .env file containing the following:
 
+```
 DS_API_URL=
 DS_API_TOKEN=
 DATABASE_URL=
 OKTA_URL_ISSUER=
+```
 
 # 4️⃣ Installation Instructions
 
@@ -45,16 +47,20 @@ OKTA_URL_ISSUER=
 > Make sure to update the details of the app name, description and version in
 > the `package.json` and `config/jsdoc.js` files.
 
-## Documentation
+<br/>
 
-backend Endpoints:
+## API Documentation
+<br/>
 
-Expected:
+### Bridges Endpoints
+
+<br/>
+GET REQUEST TO:
 
 https://bridges-b-api.herokuapp.com/bridges
 
 Returns:
-
+```
 {
 "id": 1,
 "b2p_bridge_id": null,
@@ -75,24 +81,36 @@ Returns:
 "id": 1,
 "name": "Buzi"
 }
+```
+<br/>
 
-Expected:
+GET REQUEST TO:
 
 https://bridges-b-api.herokuapp.com/bridges/communities/:id
 
 Returns:
 
+```
 {
 "id": 1,
 "name": "Buzi"
 }
+```
 
-User Endpoints:
+<br/>
 
-Expected:
+### Query Bridges Endpoints
 
-https://bridges-b-api.herokuapp.com/bridges/status?project_stage=what you're filtering by
+<br/>
 
-Returns:
+GET REQUEST TO:
 
-the project stage of which you set is the bridge is completed then it will return as such etc.
+https://bridges-b-api.herokuapp.com/bridges/status?project_stage=what
+
+### Instructions:<br/>
+
+Replace 'what' in the url above with whatever status/stage type you are filtering by.
+
+### Returns:
+
+All bridge sites with the status/stage you queried.
