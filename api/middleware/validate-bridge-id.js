@@ -1,5 +1,3 @@
-const express = require('express');
-
 const bridgeModel = require('../bridge/bridgeModel');
 
 module.exports = (req, res, next) => {
@@ -14,6 +12,6 @@ module.exports = (req, res, next) => {
       }
     })
     .catch((error) => {
-      res.status(404).json({ message: 'Can not retrieve data' });
+      res.status(404).json(error);
     });
 };
