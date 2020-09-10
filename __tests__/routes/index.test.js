@@ -6,12 +6,12 @@ describe('index router endpoints', () => {
   beforeAll(() => {});
 
   describe('GET /', () => {
-    // it('should return json with api:up', async () => {
-    //   const res = await request(server).get('/');
+    it('should return json with api:up', async () => {
+      const res = await request(server).get('/');
 
-    //   expect(res.status).toBe(200);
-    //   expect(res.body.api).toBe('up');
-    // });
+      expect(res.status).toBe(200);
+      expect(res.body.api).toBe('up');
+    });
 
     it('should return 404 for /ping', async () => {
       jest.spyOn(global.console, 'error').mockImplementation(() => {});
