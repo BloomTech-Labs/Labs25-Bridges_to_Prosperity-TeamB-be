@@ -98,6 +98,8 @@ const updateBridgesFromDS = async () => {
 
 setInterval(updateBridgesFromDS, 1000 * 60 * 60 * 24);
 
-updateBridgesFromDS();
+if (process.env.NODE_ENV !== 'test') {
+  updateBridgesFromDS();
+}
 
 module.exports = app;
