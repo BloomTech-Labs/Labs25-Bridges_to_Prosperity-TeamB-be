@@ -9,10 +9,12 @@ const getBridgeById = async (id) => {
 };
 
 const getAllProjectCodes = async () => {
-  return await db('bridges').select('Project Code');
+  return await db('bridges').select('project_code');
 };
 
 const addBridge = async (newBridge) => {
+  console.log(newBridge);
+
   return db('bridges').insert(newBridge);
 };
 
