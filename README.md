@@ -57,7 +57,7 @@ OKTA_URL_ISSUER=
 <br/>
 GET REQUEST TO:
 
-https://bridges-b-api.herokuapp.com/bridges
+https://bridges-b-api.herokuapp.com/data/bridges
 
 Returns:
 ```
