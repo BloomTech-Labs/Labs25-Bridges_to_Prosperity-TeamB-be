@@ -1,7 +1,7 @@
 const db = require('../../data/db-config');
 
 const findAll = async () => {
-  return await db('bridges');
+  return await db('bridges').orderBy('id');
 };
 
 const getBridgeById = async (id) => {
