@@ -11,7 +11,7 @@ const getViz = (state) => {
 };
 
 const bridgeData = async () => {
-  return await dsClient.get(`/raw`);
+  return await dsClient.get(`/final-data/extended`);
 };
 
 module.exports = { getPrediction, getViz, bridgeData };

@@ -12,10 +12,15 @@ exports.up = (knex) => {
     .createTable('bridges', function (bridges) {
       bridges.increments();
       bridges.string('country');
+      bridges.integer('district_id');
       bridges.string('province');
       bridges.string('district');
       bridges.string('sector');
+      bridges.string('sector_id');
       bridges.string('cell');
+      bridges.string('cell_id');
+      bridges.string('village');
+      bridges.string('village_id');
       bridges.string('bridge_site_name');
       bridges.string('project_stage');
       bridges.string('sub_stage');
@@ -26,16 +31,6 @@ exports.up = (knex) => {
       bridges.float('long');
       bridges.string('individuals_directly_served');
       bridges.string('form_name');
-      bridges.string('community_served_1');
-      bridges.string('community_served_2');
-      bridges.string('community_served_3');
-      bridges.string('community_served_4');
-      bridges.string('community_served_5');
-      bridges.string('community_served_6');
-      bridges.string('community_served_7');
-      bridges.string('community_served_8');
-      bridges.string('community_served_9');
-      bridges.string('community_served_10');
       bridges.string('casesafeid_form');
       bridges.string('bridge_opportunity_id');
       bridges.string('bridge_image');
