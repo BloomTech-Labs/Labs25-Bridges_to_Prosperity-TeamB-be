@@ -16,7 +16,11 @@ exports.up = (knex) => {
       bridges.string('province');
       bridges.string('district');
       bridges.string('sector');
+      bridges.string('sector_id');
       bridges.string('cell');
+      bridges.string('cell_id');
+      bridges.string('village');
+      bridges.string('village_id');
       bridges.string('bridge_site_name');
       bridges.string('project_stage');
       bridges.string('sub_stage');
