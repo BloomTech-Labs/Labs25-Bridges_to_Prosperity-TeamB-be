@@ -115,7 +115,8 @@ const updateBridgesFromDS = async () => {
         lat: bridge['lat'],
         long: bridge['long'],
         individuals_directly_served: bridge['Individuals_directly_served'],
-        communities_served: '{"' + bridge['communities_served'].join('","') + '"}',
+        communities_served:
+          '{"' + bridge['communities_served'].join('","') + '"}',
         form_name: bridge['form'],
         casesafeid_form: bridge['case_safe_id'],
         bridge_opportunity_id: bridge['opportunity_id'],
