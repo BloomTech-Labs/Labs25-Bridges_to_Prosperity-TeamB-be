@@ -91,7 +91,7 @@ const updateBridgesFromDS = async () => {
     const bridges = (await bridgeModel.getAllProjectCodes()).map((b) => {
       return b['project_code'];
     });
-    const newBridges = dsBridges.data.filter((dsBridge) => {
+    const newBridges = Object.values(dsBridges.data).filter((dsBridge) => {
       return !bridges.includes(dsBridge['project_code']);
     });
     const newBridgesTransformed = newBridges.map((bridge) => {
@@ -115,6 +115,7 @@ const updateBridgesFromDS = async () => {
         lat: bridge['lat'],
         long: bridge['long'],
         individuals_directly_served: bridge['Individuals_directly_served'],
+        communities_served: '{"' + bridge['communities_served'].join('","') + '"}',
         form_name: bridge['form'],
         casesafeid_form: bridge['case_safe_id'],
         bridge_opportunity_id: bridge['opportunity_id'],
