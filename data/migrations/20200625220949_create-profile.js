@@ -30,6 +30,7 @@ exports.up = (knex) => {
       bridges.float('lat');
       bridges.float('long');
       bridges.string('individuals_directly_served');
+      bridges.specificType('communities_served', 'text ARRAY');
       bridges.string('form_name');
       bridges.string('casesafeid_form');
       bridges.string('bridge_opportunity_id');
