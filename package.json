@@ -12,18 +12,8 @@
     "format": "npx prettier --write \"**/*.+(js|jsx|json|yml|yaml|css|md)\"",
     "knex": "npx knex --knexfile knexfile.js",
     "tests": "npx jest --forceExit",
-    "coverage": "CI=true npx jest --coverage --detectOpenHandles --forceExit"
-  },
-  "jest": {
-    "testEnvironment": "node",
-    "collectCoverageFrom": [
-      "**/*.js",
-      "!**/node_modules/**",
-      "!**/vendor/**",
-      "!**/__tests__/**",
-      "!**/coverage/**",
-      "!**/apidoc/**"
-    ]
+    "coverage": "CI=true npx jest --coverage --detectOpenHandles --forceExit",
+    "test": "jest --watchAll"
   },
   "nodemonConfig": {
     "exec": "npm run start",
@@ -69,6 +59,7 @@
     "jest": "^25.2.4",
     "nodemon": "^2.0.4",
     "prettier": "^2.0.5",
+    "sqlite3": "^5.0.0",
     "supertest": "^4.0.2"
   }
 }
