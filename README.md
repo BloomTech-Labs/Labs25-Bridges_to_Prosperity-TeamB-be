@@ -1,8 +1,10 @@
-# 1️⃣ Bridge of Prosperity Backend
+# Bridge of Prosperity Backend
 
-1️⃣ You can find the deployed project at https://bridges-b-api.herokuapp.com/
+You can find the deployed project at https://bridges-b-api.herokuapp.com/
 
-## 4️⃣ Contributors
+You can find a demo vidoe of codebase at https://www.youtube.com/watch?v=PARd7apawNM&feature=youtu.be
+
+## Contributors
 
 |                                                            [Cody Solomon](https://github.com/CodyFlys)                                                            |                                        [Robert Misch](https://github.com/RobertMisch)                                         |                                                           [Xavier Hoskins](https://github.com/xavierhoskins)                                                           |
 | :---------------------------------------------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
@@ -17,13 +19,13 @@
 
 ## Project Overview
 
-1️⃣ [Trello Board] https://trello.com/b/x1iIzJdj/labs25bridgesjessica
+Trello Board: https://trello.com/b/x1iIzJdj/labs25bridgesjessica
 
-#### [Back end] https://bridges-b-api.herokuapp.com/built using:
+Back end: https://bridges-b-api.herokuapp.com/built 
 
-# APIs
+Tech Stack: Node.js, Express, Knex, PostgreSql, Docker
 
-# 3️⃣ Environment Variables
+## Environment Variables
 
 In order for the app to function correctly, the user must set up their own environment variables. There should be a .env file containing the following:
 
@@ -34,7 +36,7 @@ DATABASE_URL=
 OKTA_URL_ISSUER=
 ```
 
-# 4️⃣ Installation Instructions
+# Installation Instructions
 
 - run: `npm install` to download all dependencies.
 - run: `cp .env.sample .env` and update the enviornment variables to match your local setup.
@@ -43,8 +45,6 @@ OKTA_URL_ISSUER=
 - run: `npm run tests` to confirm all is setup and tests pass.
 - run: `npm run watch:dev` to start nodemon in local dev enviornment.
 
-> Make sure to update the details of the app name, description and version in
-> the `package.json` and `config/jsdoc.js` files.
 
 <br/>
 
